@@ -27,7 +27,7 @@ gradle-app.setting
 
 # Eclipse Gradle plugin generated files
 # Eclipse Core
-.project
+# .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 # Eclipse settings
@@ -47,3 +47,4 @@ wars
 
 # Test logs
 logs
+/target/
