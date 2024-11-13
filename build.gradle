@@ -6,7 +6,12 @@ plugins {
 	//id "ca.cutterslade.analyze" version "1.9.2" // Analyzes dependancies for usage
 	id 'com.palantir.git-version' version '3.0.0'
 	//id("com.diffplug.spotless") version "6.25.0" 
+	id("maven-publish")
 }
+
+// Allows: gradle -PprojVersion=X build
+// version project.findProperty('projVersion') ?: gitVersion() ?: "UnknownVersion"
+version = '2.0.5'
 
 sourceSets {
 	main {
@@ -25,26 +30,6 @@ java {
 	}
 }
 
-ext {
-    runTestsSequentially = findProperty('ARCHAPPL_SEQUENTIAL_TESTS') ?: false
-}
-
-// Allows: gradle -PprojVersion=X build
-version project.findProperty('projVersion') ?: gitVersion() ?: "UnknownVersion"
-
-def stageDir = layout.projectDirectory.file("build/stage")
-def srcDir = layout.projectDirectory.file("src/main")
-def libDir = layout.projectDirectory.file("lib")
-def apiDocsDir = layout.projectDirectory.file("docs/api")
-def archapplsite = System.getenv("ARCHAPPL_SITEID") ?: "tests"
-def defaultsitespecificpath = "src/sitespecific/${archapplsite}"
-// Allow the site to be outside of the repository
-def sitespecificpath = (new File("${defaultsitespecificpath}").exists()) ? defaultsitespecificpath : archapplsite
-
-//ant.stage = stageDir
-//ant.archapplsite = archapplsite
-//ant.sitespecificpath = sitespecificpath
-//ant.importBuild("build.xml")
 
 repositories {
 	flatDir {
@@ -71,7 +56,6 @@ repositories {
 	
 	maven { url 'https://jitpack.io' }
 }
-
 
 dependencies {
 	// Local depencencies
