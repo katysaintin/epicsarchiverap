@@ -1,11 +1,11 @@
 plugins {
 	id "java-library"
     id "application"
-    id "war"
-	id "eclipse"
+    //id "war"
+	//id "eclipse"
 	//id "ca.cutterslade.analyze" version "1.9.2" // Analyzes dependancies for usage
 	id 'com.palantir.git-version' version '3.0.0'
-	id("com.diffplug.spotless") version "6.25.0" 
+	//id("com.diffplug.spotless") version "6.25.0" 
 }
 
 sourceSets {
@@ -41,10 +41,10 @@ def defaultsitespecificpath = "src/sitespecific/${archapplsite}"
 // Allow the site to be outside of the repository
 def sitespecificpath = (new File("${defaultsitespecificpath}").exists()) ? defaultsitespecificpath : archapplsite
 
-ant.stage = stageDir
-ant.archapplsite = archapplsite
-ant.sitespecificpath = sitespecificpath
-ant.importBuild("build.xml")
+//ant.stage = stageDir
+//ant.archapplsite = archapplsite
+//ant.sitespecificpath = sitespecificpath
+//ant.importBuild("build.xml")
 
 repositories {
 	flatDir {
