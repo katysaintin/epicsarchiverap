@@ -84,7 +84,7 @@
 		<dependency>
 			<groupId>com.github.ControlSystemStudio.phoebus</groupId>
 			<artifactId>core-pva</artifactId>
-			<version>master</version>
+			<version>v4.7.2</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
